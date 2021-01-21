@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -38,7 +38,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $product_new = new Product();
+        // $product_new->brand = $data['brand'];
+        // $product_new->size = $data['size'];
+        // $product_new->color = $data['color'];
+        // $product_new->price = $data['price'];
+        // $product_new->description = $data['description'];
+        $product_new->fill($data); //per usare fill bisogna dichiarare nel model le proprieta "fillabili"
+        $product_new->save();
+
+        return redirect()->route('products.index');
     }
 
     /**

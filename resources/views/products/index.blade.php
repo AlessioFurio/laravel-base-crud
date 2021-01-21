@@ -12,4 +12,6 @@
                 <a href="{{ route('products.show', ['product' => $item->id]) }}">Mostra Dettagli</a>
             </ul>
         @endforeach
+
+        <a href="{{ route('products.create') }}">Inserisci nuovo prodotto</a>
 @endsection
