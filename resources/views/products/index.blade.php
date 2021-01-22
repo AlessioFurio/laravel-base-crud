@@ -11,6 +11,14 @@
                 <li>{{ $item->price }}</li>
                 <a href="{{ route('products.show', ['product' => $item->id]) }}">Mostra Dettagli</a>
                 <a href="{{ route('products.edit', ['product' => $item->id]) }}">Modifica prodotto</a>
+
+                <form class="" action="{{ route('products.destroy', ['product' => $item->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="button">
+                        Elimina prodotto
+                    </button>
+                </form>
             </ul>
         @endforeach
 
