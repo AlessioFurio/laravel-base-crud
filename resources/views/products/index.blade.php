@@ -10,8 +10,10 @@
                 <li>{{ $item->color }}</li>
                 <li>{{ $item->price }}</li>
                 <a href="{{ route('products.show', ['product' => $item->id]) }}">Mostra Dettagli</a>
+                <a href="{{ route('products.edit', ['product' => $item->id]) }}">Modifica prodotto</a>
             </ul>
         @endforeach
 
         <a href="{{ route('products.create') }}">Inserisci nuovo prodotto</a>
+
 @endsection

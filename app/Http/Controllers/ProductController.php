@@ -72,9 +72,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        if($product){  // equivalente alla funzione show come sintassi
+            $data = [
+                'product' => $product
+            ];
+            return view('products.edit', $data);
+        }
+        abort(404);
+        // $data = [
+        //     'product'=> Product::find($id)
+        // ];
     }
 
     /**
@@ -84,9 +93,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $data = $request->all();
+        $product->update($data);
+
+        return redirect()->route('products.index');
     }
 
     /**

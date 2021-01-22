@@ -12,7 +12,12 @@
         </div>
         <div class="">
             <label>Size</label>
-            <input type="text" name="size">
+            <select class="" name="size">
+                <option value="">--seleziona genere--</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
         </div>
         <div class="">
             <label>Color</label>
